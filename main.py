@@ -53,7 +53,7 @@ class Customer:
         return self.want
 
 
-player = Player("Klas", 200, 0, 0, 0)
+player = Player("Du", 200, 0, 0, 0)
 kokphase = False
 buyphase = True
 life = True
@@ -65,7 +65,15 @@ tårta = Cake()
 print(f"{player.namn} har {player.pengar} kronor.")
 
 while life:
+    print("Hur ska du förbereda för dagen?")
     while buyphase:
+        print(
+                    f"Du har [{player.harkaffe}] Kaffe, "
+                    f"Du har [{player.harkaka}] Kaka, "
+                    f"Du har [{player.hartårta}] Tårta, "
+                    f"Du har [{player.pengar}] pengar"
+                )
+        print("")
         print("[Kaffe 5kr] [Kaka 10kr] [Tårta 20kr]")
         köper = input("Vad vill du köpa? ").strip().lower()
 
@@ -93,17 +101,11 @@ while life:
         else:
             print("Finns inte")
 
-        print(
-            f"Du har [{player.harkaffe}] Kaffe, "
-            f"Du har [{player.harkaka}] Kaka, "
-            f"Du har [{player.hartårta}] Tårta, "
-            f"Du har [{player.pengar}] pengar"
-        )
-
         takunder = input("Vill du börja ta emot kunder? ").strip().lower()
         if takunder == "ja":
             kokphase = True
-            buyphase = False
+            break
+        print("")
 
     happykund = 0
     sadkund = 0
